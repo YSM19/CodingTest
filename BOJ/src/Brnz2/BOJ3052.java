@@ -1,24 +1,20 @@
 package Brnz2;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
 
 public class BOJ3052 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int cnt = 0;
-        int[] temp = new int[10];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        HashSet<Integer> h = new HashSet<Integer>();
 
         for (int i=0; i<10; i++){
-            int n = sc.nextInt();
-                if (temp[i]==n) {
-
-                    if (n%42!=0){
-                    temp[cnt] = n;
-                    cnt++;
-                }
-            }
+            h.add(Integer.parseInt(br.readLine()) % 42);
         }
-        System.out.println(cnt);
+
+        System.out.println(h.size());
 
     }
 }
