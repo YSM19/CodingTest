@@ -8,11 +8,16 @@ public class BOJ2231 {
         int n = sc.nextInt();
         int ans = 0;
 
-        for (int i=1; i<n; i++){
-            String s = String.valueOf(i);
-            int sum = i + (s.charAt(0) - '0') + (s.charAt(1) - '0') + (s.charAt(2) - '0');
+        for (int i = 1; i < n; i++) {
+            int num = i;
+            int sum = 0; // 각 자리수를 더한 값을 저장
 
-            if (sum == n){
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+
+            if (sum + i == n) {
                 ans = i;
                 break;
             }
