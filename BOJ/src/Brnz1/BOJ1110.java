@@ -6,7 +6,9 @@ public class BOJ1110 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String n = sc.next();
-
+        if(Integer.parseInt(n)<10){
+            n = '0'+n;
+        }
         String init = n;
         int cnt = 0;
 
@@ -16,10 +18,6 @@ public class BOJ1110 {
             n = n.charAt(1) + "" + sum;
             cnt++;
             if(init.equals(n)) break;
-            if(Integer.parseInt(n)<10){
-                n = '0'+n;
-            }
-
         }
         System.out.println(cnt);
     }
