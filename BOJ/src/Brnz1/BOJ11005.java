@@ -1,38 +1,31 @@
 package Brnz1;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class BOJ11005 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int n = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        int res[] = new int[10];
-        int cnt = 0;
-        int[] remain = new int[10];
+        List<Character> list = new ArrayList<>();
 
-        while (true){
-            remain[cnt] = n%b;
-            n = n / b;
-            cnt++;
-
-            if (n==0) break;
+        while (n!=0){
+            if (n%b < 10) {
+                list.add((char)(n%b + '0'));
+            }
+            else {
+                list.add((char)(n%b - 10 + 'A'));
+            }
+            n /= b;
         }
 
-//        Integer[] wrap = Arrays.stream(remain).boxed().toArray(Integer[]::new);
-//        Arrays.sort(wrap, Collections.reverseOrder());
-
-        for (int i=9; i>=0; i--){
-            //if (0==(remain[i])) continue;
-            res[9-i] = remain[i];
-            System.out.println(res[9-i]);
+        for (int i= list.size()-1; i>=0; i--){
+            System.out.print(list.get(i));
         }
     }
 }
