@@ -1,4 +1,4 @@
-package Sec1.자료구조.슬라이딩_윈도우;
+package Sec1.자료구조._3.슬라이딩_윈도우;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package Sec1.자료구조.구간_합;
+package Sec1.자료구조._1.구간_합;
 
 import java.io.*;
 import java.util.StringTokenizer;

@@ -1,4 +1,4 @@
-package Sec1.자료구조.투_포인터;
+package Sec1.자료구조._2.투_포인터;
 
 import java.io.BufferedReader;
 import java.io.IOException;
