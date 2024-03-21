@@ -1,4 +1,4 @@
-package Sec2.Greedy;
+package Sec2.Greedy.brnz;
 
 import java.util.Scanner;
 

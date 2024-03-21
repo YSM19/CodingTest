@@ -1,4 +1,4 @@
-package Sec2.Greedy;
+package Sec2.Greedy.silv;
 
 import java.util.Scanner;
 
