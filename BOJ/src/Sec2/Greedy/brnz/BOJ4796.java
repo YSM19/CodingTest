@@ -9,6 +9,8 @@ public class BOJ4796 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
+        int cnt = 1;
 
         while (true) {
             st = new StringTokenizer(br.readLine());
@@ -18,7 +20,17 @@ public class BOJ4796 {
 
             if (l==0 && p==0 && v==0) break;
 
+            int res = (v/p) * l + Math.min(l, v%p);
 
+            sb.append("Case ");
+            sb.append(cnt);
+            sb.append(": ");
+            sb.append(res);
+
+            System.out.println(sb);
+
+            sb.delete(0, sb.length());
+            cnt++;
         }
     }
 }
