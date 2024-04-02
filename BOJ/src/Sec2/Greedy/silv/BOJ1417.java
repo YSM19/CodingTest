@@ -6,35 +6,25 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class BOJ1417 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine()); //3
-        int m = Integer.parseInt(br.readLine()); //5
-        List<Integer> arr = new ArrayList<>();
+        int a = Integer.parseInt(br.readLine()); //5
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
-        for (int i=0; i<n-1; i++){
-            arr.add(Integer.parseInt(br.readLine())); // 7 7
+        while (n-- > 1){
+            pq.add(Integer.parseInt(br.readLine()));
         }
-        Collections.reverse(arr);
-
-        int ans = 0;
-        for (int i=0; i<n-1; i++) {
-
-            int cnt = 0;
-            for (int j=0; j<n-1; j++) {
-                if ((m > arr.get(j))){
-                    cnt++;
-                }
-            }
-            if (cnt == n-1) break;
-
-            arr.set(i, arr.get(i)-1); // 6 7
-            m=m+1;
-            ans++;
+        int cnt = 0;
+        while (!pq.isEmpty() && pq.peek() >= a) {
+            cnt++;
+            a++;
+            pq.add(pq.poll()-1);
         }
-        System.out.println(ans);
+        System.out.println(cnt);
 
     }
 }
