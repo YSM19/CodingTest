@@ -10,26 +10,22 @@ public class BOJ10250 {
 
         int t = Integer.parseInt(br.readLine());
 
-        for (int i=0; i<t; i++) {
+        for (int i = 0; i < t; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            int h = Integer.parseInt(st.nextToken());
-            int w = Integer.parseInt(st.nextToken());
-            int n = Integer.parseInt(st.nextToken());
+            int H = Integer.parseInt(st.nextToken());
+            int W = Integer.parseInt(st.nextToken());
+            int N = Integer.parseInt(st.nextToken());
 
+            int x = (N/H) + 1;
+            int y = N%H;
 
-            int c = n/h +1;
-            int a = n%h;
-            int b=0;
-
-            if(c%10==0){
-                b = c/10;
-                c%=10;
-                
+            if (N%H==0) {
+                x = N/H;
+                y = H;
             }
 
-            bw.write(a+""+b+""+c+"\n");
+            System.out.println(y*100+x);
 
         }
-        bw.flush();
     }
 }
