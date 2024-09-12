@@ -13,14 +13,36 @@ public class BOJ1654 {
         int N = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[N];
-        int sum = 0;
+        long  max = 0;
         for (int i = 0; i < K; i++) {
             arr[i] = Integer.parseInt(br.readLine());
-            sum += arr[i];
+            if (max < arr[i]) {
+                max = arr[i];
+            }
         }
 
-        System.out.println(sum);
-        System.out.println(sum/11);
+        max++;
+
+        long min = 0;
+        long mid = 0;
+
+        while (min < max) {
+            mid = (min + max) / 2;
+
+            long cnt = 0;
+
+            // 중간 길이로 잘라서 총 몇 개가 만들어지는지 구하기
+            for (int i=0; i<arr.length; i++) {
+                cnt += (arr[i] / mid);
+            }
+
+            if (cnt < N) {
+                max = mid;
+            }
+            else {
+                min = mid + 1;
+            }
+        }
 
     }
 }
