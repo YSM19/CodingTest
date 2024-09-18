@@ -3,34 +3,87 @@ package solvedac.level3.try_1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class BOJ9375 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
 
         while(T-- > 0) {
             int n = Integer.parseInt(br.readLine());
-            StringTokenizer st;
-            String[] s = new String[n];
-            for (int i=0; i<n; i++) {
-                st = new StringTokenizer(br.readLine());
+            HashMap<String, Integer> map = new HashMap<>();
+
+            while (n-- > 0) {
+                StringTokenizer st = new StringTokenizer(br.readLine());
                 st.nextToken();
-                s[i] = st.nextToken();
-            }
+                String kind = st.nextToken();
 
-            int cnt = 0;
-            for(int j=0; j<s.length-1; j++) {
-                if (s[j].equals(s[j+1])) {
-                    continue;
+                if(map.containsKey(kind))
+                    map.put(kind, map.get(kind)+1);
+                else {
+                    map.put(kind, 1);
                 }
-                cnt++;
+            }
+            int res = 1;
+
+            for (int val : map.values()) {
+                res *= (val+1);
             }
 
-            int ans = n + cnt;
-            System.out.println(ans);
+            sb.append(res-1).append("\n");
         }
+        System.out.println(sb);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        while(T-- > 0) {
+//            HashMap<String, Integer> map = new HashMap<>();
+//
+//            int n = Integer.parseInt(br.readLine());
+//            StringTokenizer st;
+//
+//            while (n-- > 0){
+//                st = new StringTokenizer(br.readLine());
+//                st.nextToken();
+//
+//                String kind = st.nextToken();
+//
+//                if (map.containsKey(kind)) {
+//                    map.put(kind, map.get(kind)+1);
+//                }
+//                else {
+//                    map.put(kind, 1);
+//                }
+//            }
+//
+//            int res = 1;
+//            for (int val : map.values()) {
+//                res *= (val+1);
+//            }
+//            sb.append(res - 1).append("\n");
+//        }
+//        System.out.println(sb);
     }
 }
