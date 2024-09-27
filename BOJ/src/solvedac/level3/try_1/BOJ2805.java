@@ -13,32 +13,41 @@ public class BOJ2805 {
         int M = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[N];
+
+        int min = 0;
+        int max = 0;
+
         st = new StringTokenizer(br.readLine());
         for (int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-        }
-        Arrays.sort(arr);
 
-        int start = 0;
-        int end = arr[N-1];
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+//        Arrays.sort(arr);
+
+//        int start = 0;
+//        int end = arr[N-1];
         int mid = 0;
 
-        while (start <= end) {
-            mid = (start+end)/2;
+        while (min < max) {
 
-            long cnt = 0;
+            mid = (min+max)/2;
+            long sum = 0;
             for (int i=0; i<N; i++) {
                 int num = arr[i] - mid;
-                if(num < 0) continue;
-                cnt += num;
+                if(num > 0) {
+                    sum += num;
+                }
             }
 
-            if (cnt == M) break;
-            else if (M < cnt) {
-                start = mid+1;
+            if (sum == M) break;
+            else if (M < sum) {
+                min = mid+1;
             }
-            else if (M > cnt) {
-                end = mid;
+            else if (M > sum) {
+                max = mid;
             }
         }
 
